@@ -81,6 +81,12 @@ public abstract class BucketListAdapter<T> extends ArrayAdapter<T> {
         return bucketSize;
     }
 
+    public void addAll(List<T> elements) {
+        for (T item: elements) {
+            add(item);
+        }
+    }
+
     @Override
     public int getCount() {
         return (super.getCount() + bucketSize - 1) / bucketSize;
@@ -130,7 +136,7 @@ public abstract class BucketListAdapter<T> extends ArrayAdapter<T> {
                 
                 if (i < super.getCount()) {
                     View currentConvertView = bucketElementFrame.getChildAt(0);
-                    View current = getBucketElement(i, getItem(i), currentConvertView);
+                    //View current = getBucketElement(i, getItem(i), currentConvertView);
                     
                     if (DEBUG) {
                         Log.i(TAG, "Reusing element view");
